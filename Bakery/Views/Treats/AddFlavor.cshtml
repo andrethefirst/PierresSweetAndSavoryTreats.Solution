@@ -1,0 +1,48 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Treat
+
+<h2>Add a flavor</h2>
+
+<h4>Add a Flavor to this Treat: <b>@Html.DisplayFor(model => model.Name)</b></h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.Label("Select Flavor")
+  @Html.DropDownList("FlavorId")
+
+  <input class="btn btn-primary" type="submit" value="Save" />
+}
+
+<p>
+  <a
+  asp-controller="Flavors"
+  asp-action="Create"
+  class="btn btn-primary"
+  >
+  Create new Flavor
+  </a>
+</p>
+<p>
+  <a
+  asp-controller="Treats"
+  asp-action="Details"
+  asp-route-id="@Model.TreatId"
+  class="btn btn-primary"
+  >
+  Back to [@(Model.Name)] Details
+  </a>
+</p>
+<p>
+  <a
+  asp-controller="Treats"
+  asp-action="Index"
+  class="btn btn-primary"
+  >
+  Back to Treats
+  </a>
+</p>

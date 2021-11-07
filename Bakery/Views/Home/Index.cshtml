@@ -1,0 +1,64 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Flavors</h1>
+
+@if(ViewBag.Flavors.Count == 0)
+{
+  <h3>No flavors have been added yet</h3>
+}
+
+<ul>
+  @foreach(var flavor in ViewBag.Flavors)
+  {
+    <li>
+      @Html.ActionLink($"{flavor.Name}", "Details", "Flavors", new { id = flavor.FlavorId })
+      number of treats: @(flavor.JoinEntities.Count)
+    </li>
+  }
+</ul>
+
+<h1>Treats</h1>
+
+@if (ViewBag.Treats.Count == 0)
+{
+  <h3>No treats have been added yet</h3>
+}
+<ul>
+  @foreach (var treat in ViewBag.Treats)
+  {
+    <li>
+      @Html.ActionLink($"{treat.Name}", "Details", "Treats", new { id = treat.TreatId })
+      number of flavors: @(treat.JoinEntities.Count)
+    </li>
+  }
+</ul>
+
+<p>
+  <a
+  asp-action="Index"
+  asp-controllers="Flavors"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-card-list"></i>All Flavors</a>
+</p>
+<p>
+  <a
+  asp-action="Index"
+  asp-controllers="Treats"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-card-list"></i>All Treats
+  </a>
+</p>
+<p>
+  <a
+  asp-action="Index"
+  asp-controller="Account"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-box-arrow-in-right"></i>
+  Create account/Login
+  </a>
+</p>

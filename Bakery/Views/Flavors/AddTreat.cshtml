@@ -1,0 +1,54 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Flavor
+
+<h2>Add a treat</h2>
+
+<h4>Add a treat to this flavor: <b>@Html.DisplayFor(model => model.Name)</b></h4>
+@if (ViewBag.TreatsList.Count == 0)
+{
+  <p>No Treats Added yet</p>
+}
+else
+{
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
+
+    @Html.Label("Select Treat")
+    @Html.DropDownList("TreatId")
+
+    <input class="btn btn-primary" type="submit" value="Save" />
+  }
+}
+
+<p>
+  <a
+  asp-controllers="Treats"
+  asp-action="Create"
+  class="btn btn-primary"
+  >
+  Create new Treat
+  </a>
+</p>
+<p>
+  <a
+  asp-controller="Flavors"
+  asp-action="Details"
+  asp-route-itemid="@Model.FlavorId"
+  class="btn btn-primary"
+  >
+  Back to [@(Model.Name)] Details
+  </a>
+</p>
+<p>
+  <a
+  asp-controller="Flavors"
+  asp-action="Index"
+  class="btn btn-primary"
+  >
+  Back to Flavors
+  </a>
+</p>

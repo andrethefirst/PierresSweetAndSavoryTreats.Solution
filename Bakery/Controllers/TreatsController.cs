@@ -25,7 +25,7 @@ namespace Bakery.Controllers
     public ActionResult Index()
     {
       List<Treat> model = _db.Treats.ToList();
-      return ViewModels(model);
+      return View(model);
     }
 
     [Authorize]

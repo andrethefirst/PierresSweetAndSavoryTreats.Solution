@@ -40,7 +40,7 @@ namespace Bakery
         options.Password.RequireLowercase = false;
         options.Password.RequireNonAlphanumeric = false;
         options.Password.RequireUppercase = false;
-        options.Password.RequirdUniqueChars = 0;
+        options.Password.RequiredUniqueChars = 0;
       });
     }
 

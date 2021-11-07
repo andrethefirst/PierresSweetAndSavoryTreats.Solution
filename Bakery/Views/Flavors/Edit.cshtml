@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Flavor
+
+<h2>Edit</h2>
+
+<h4>Edit this Flavor: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name, new { @required = true })
+
+  @Html.LabelFor(model => model.Description)
+  @Html.EditorFor(model => model.Description, new { @required = true })
+
+  <input class="btn btn-info" type="submit" value="Save" />
+}
+<p>
+  <a
+  asp-controller="Flavors"
+  asp-action="Details"
+  asp-route-id="@Model.FlavorId"
+  class="btn btn-primary"
+  >
+  Back to [@(Model.Name)] Details
+  </a>
+</p>
+<p>@Html.ActionLink("Back to Flavors", "Index")</p>

@@ -1,0 +1,79 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Treat
+
+<h2>Treat Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Flavor does not have any Flavors</p>
+}
+else
+{
+  <h4>Flavors this treat has @(Model.JoinEntities.Count)</h4>
+  <ol>
+    @foreach(var join in Model.JoinEntities)
+    {
+      <table>
+        <tr>
+          <td>
+            @Html.ActionLink(join.Flavor.Name, "Details", "Flavor", new { id = join.Flavor.FlavorId })
+          </td>
+          <td>
+            <form
+            asp-action="DeleteFlavor"
+            asp-controller="Treats"
+            >
+            <input id="joinId" name="joinId" type="hidden" value=@(join.FlavorTreatId)>
+            <input type="submit" class="btn btn-dark" value="Delete" />
+            </form>
+          </td>
+        </tr>
+      </table>
+    }
+  </ol>
+}
+
+<p>
+  <a
+  asp-controller="Treats"
+  asp-action="AddFlavor"
+  asp-route-id="@Model.TreatId"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-plus-square-fill"></i>Flavor
+  </a>
+</p>
+<p>
+  <a
+  asp-controller="Treats"
+  asp-action="Edit"
+  asp-route-id="@Model.TreatId"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-pencil-square"></i>Treat
+  </a>
+</p>
+<p>
+  <a
+  asp-controller="Treats"
+  asp-action="Delete"
+  asp-route-itemid="@Model.TreatId"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-trash-fill"></i>Treat
+  </a>
+</p>
+<p>
+  <a
+  asp-controllers="Treats"
+  asp-action="Index"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-house-fill"></i>Treats
+  </a>
+</p>

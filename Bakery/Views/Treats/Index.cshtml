@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+@model List<Bakery.Models.Treat>;
+
+<h1>Treats</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No treats have been added</h3>
+}
+
+@foreach (Treat treat in Model)
+{
+  <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</li>
+}
+
+<p>
+  <a
+  asp-action="Create"
+  asp-controller="Treats"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-plus-square-fill"></i> Treat
+  </a>
+</p>
+<p>
+  <a
+  asp-action="Index"
+  asp-controller="Home"
+  class="btn btn-primary"
+  >
+  <i class="bi bi-house"></i> Home
+  </a>
+</p>
