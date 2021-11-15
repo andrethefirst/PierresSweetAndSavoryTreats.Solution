@@ -21,13 +21,6 @@
   <input class="btn btn-info" type="submit" value="Save" />
 }
 <p>
-  <a
-  asp-controller="Flavors"
-  asp-action="Details"
-  asp-route-id="@Model.FlavorId"
-  class="btn btn-primary"
-  >
-  Back to [@(Model.Name)] Details
-  </a>
+  @Html.ActionLink("Details", "Details", "Flavors")
 </p>
 <p>@Html.ActionLink("Back to Flavors", "Index")</p>

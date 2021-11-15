@@ -19,6 +19,7 @@
 }
 
 <p>
+  @Html.ActionLink("New Flavor", "Create", "Flavors")
   <a
   asp-controller="Flavors"
   asp-action="Create"
@@ -28,6 +29,7 @@
   </a>
 </p>
 <p>
+  @Html.ActionLink("Details", "Details", "Treats")
   <a
   asp-controller="Treats"
   asp-action="Details"
@@ -38,6 +40,7 @@
   </a>
 </p>
 <p>
+  @Html.ActionLink("Treats", "Index", "Treats")
   <a
   asp-controller="Treats"
   asp-action="Index"

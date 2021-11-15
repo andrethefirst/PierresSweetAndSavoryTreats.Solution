@@ -39,6 +39,7 @@ else
 }
 
 <p>
+  @Html.ActionLink("Add Flavor", "AddFlavor", "Treats")
   <a
   asp-controller="Treats"
   asp-action="AddFlavor"
@@ -49,6 +50,7 @@ else
   </a>
 </p>
 <p>
+  @Html.ActionLink("Edit Treat", "Edit","Treats")
   <a
   asp-controller="Treats"
   asp-action="Edit"
@@ -59,6 +61,7 @@ else
   </a>
 </p>
 <p>
+  @Html.ActionLink("Delete Treat", "Delete", "Treats")
   <a
   asp-controller="Treats"
   asp-action="Delete"
@@ -69,6 +72,7 @@ else
   </a>
 </p>
 <p>
+  @Html.ActionLink("Treats", "Index", "Treats")
   <a
   asp-controllers="Treats"
   asp-action="Index"
